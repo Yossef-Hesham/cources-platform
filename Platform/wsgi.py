@@ -1,19 +1,10 @@
-"""
-WSGI config for Platform project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
-"""
-
 import os
-
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Platform.settings')
 
 application = get_wsgi_application()
 
-
-app = application  # For compatibility with some WSGI servers
+# Add this for WhiteNoise
+from whitenoise import WhiteNoise
+application = WhiteNoise(application, root=os.path.join(os.path.dirname(__file__), 'staticfiles_build/static'))

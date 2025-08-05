@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+POST https://cources-platform-bk2n8dlmj-youssefs-projects-e2c35ebf.vercel.app/api/auth/user/register/
+
+Content-Type: application/json
+
+{
+  "username": "joo_hamzy",
+  "email": "joo_hamzy@example.com",
+  "password": "123456",
+  "user_type": "teacher",
+  "biography": "frontend developer",
+  "national_id": "123456789",
+  "date_of_birth": "2000-01-01",
+  "grade": 12
+
+
+}
+
+
+
+
