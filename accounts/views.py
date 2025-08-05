@@ -21,10 +21,21 @@ class RegisterView(generics.CreateAPIView):
 
 
 from rest_framework.permissions import AllowAny
+
+from .serializers import UserLoginSerializer, LoginResponseSerializer
+from drf_spectacular.utils import extend_schema, OpenApiResponse
+
 class LoginView(APIView):
     permission_classes = [AllowAny]
-    serializer_class = UserLoginSerializer  # ✅ ADD THIS
+    serializer_class = UserLoginSerializer
 
+    @extend_schema(
+        request=UserLoginSerializer,
+        responses={
+            200: OpenApiResponse(response=LoginResponseSerializer),
+            400: OpenApiResponse(description='Invalid username or password.')
+        }
+    )
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():

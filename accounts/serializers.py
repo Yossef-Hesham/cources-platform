@@ -89,6 +89,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         return user
 
 
+
 class UserLoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField(write_only=True)
@@ -106,3 +107,10 @@ class UserLoginSerializer(serializers.Serializer):
             "user_type": user.user_type,
             "user": user
         }
+
+class LoginResponseSerializer(serializers.Serializer):
+    user_id = serializers.IntegerField()
+    username = serializers.CharField()
+    email = serializers.EmailField()
+    user_type = serializers.CharField()
+    tokens = serializers.DictField()
