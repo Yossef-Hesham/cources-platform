@@ -22,10 +22,21 @@ class CreateCourseView(generics.CreateAPIView):
 
 
 class ListCourseListView(generics.ListAPIView):
-    queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    permission_classes = [AllowAny]  # Allow any user to view the courses
-
+    permission_classes = [IsTeacher]
+    
+    def get_queryset(self):
+        # Add select_related to optimize DB queries
+        return Course.objects.filter(
+            instructor=self.request.user.teacher_profile  # Assuming instructor links to Teacher model
+        ).select_related('instructor__user')
+    
+    def get_serializer_context(self):
+        # Pass request to serializer
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
+    
 class UpdateCourseDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer

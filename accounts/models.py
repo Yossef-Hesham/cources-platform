@@ -20,7 +20,7 @@ class Student(models.Model):
     grade = models.IntegerField(null=True, blank=True)
 
 class Teacher(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher_profile')
     national_id = models.CharField(max_length=14)
     photo = models.ImageField(upload_to='teachers/photos/', null=True, blank=True)
     date_of_birth = models.DateField()

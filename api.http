@@ -36,12 +36,12 @@ Content-Type: application/json
 
 ### 
 
-POST http://127.0.0.1:8000/api/auth/user/login/
+POST http://127.0.0.1:8000/auth/user/login/
 Content-Type: application/json
 
 
 {
-  "username": "hamzy",
+  "username": "joelhh",
   "password": "123456"
 }
 
@@ -49,9 +49,9 @@ Content-Type: application/json
 
 ### 
 
-GET  http://127.0.0.1:8000/api/teacher/get/courses/
+GET  http://127.0.0.1:8000/teacher/get/courses/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0NDE1MTEyLCJpYXQiOjE3NTQ0MTE1MTIsImp0aSI6IjQ0MWU3MWJiZTQwZTQ1YTVhMGZhODAxN2Q2ZGM3MDYwIiwidXNlcl9pZCI6IjEzIn0.ak-PnElllGOXEEiFhC7nuc_hBTLcPLbsg28e7a-8A4w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0NDE5Njg3LCJpYXQiOjE3NTQ0MTYwODcsImp0aSI6ImUzMWJhNjY0MzM0MDRkZTY4NTlhNTY3YjE3OTg3NmQxIiwidXNlcl9pZCI6IjgifQ.Aqd9r9fbkrQbOIeiVXfSnEoVpGvN80Q6Sx_8VYTCItI
 
 
 # {
