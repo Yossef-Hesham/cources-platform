@@ -1,7 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
 from .serializers import UserRegisterSerializer, UserLoginSerializer
@@ -19,6 +19,7 @@ class RegisterView(generics.CreateAPIView):
     # parser_classes = [MultiPartParser, FormParser]
 
 class LoginView(APIView):
+    parser_classes = [JSONParser, FormParser] 
     def post(self, request):
         serializer = UserLoginSerializer(data=request.data)
         if serializer.is_valid():
