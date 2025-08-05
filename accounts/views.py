@@ -18,10 +18,15 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = UserRegisterSerializer
     # parser_classes = [MultiPartParser, FormParser]
 
+
+
+from rest_framework.permissions import AllowAny
 class LoginView(APIView):
-    parser_classes = [JSONParser, FormParser] 
+    permission_classes = [AllowAny]
+    serializer_class = UserLoginSerializer  # ✅ ADD THIS
+
     def post(self, request):
-        serializer = UserLoginSerializer(data=request.data)
+        serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             user = serializer.validated_data["user"]
             tokens = get_tokens_for_user(user)
@@ -31,5 +36,5 @@ class LoginView(APIView):
                 "email": user.email,
                 "user_type": user.user_type,
                 "tokens": tokens
-            })
+            }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
