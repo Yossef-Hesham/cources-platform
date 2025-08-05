@@ -27,17 +27,9 @@ from drf_spectacular.utils import extend_schema, OpenApiResponse
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
-    serializer_class = UserLoginSerializer
 
-    @extend_schema(
-        request=UserLoginSerializer,
-        responses={
-            200: OpenApiResponse(response=LoginResponseSerializer),
-            400: OpenApiResponse(description='Invalid username or password.')
-        }
-    )
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
+        serializer = UserLoginSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.validated_data["user"]
             tokens = get_tokens_for_user(user)
@@ -48,4 +40,5 @@ class LoginView(APIView):
                 "user_type": user.user_type,
                 "tokens": tokens
             }, status=status.HTTP_200_OK)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

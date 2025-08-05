@@ -95,18 +95,17 @@ class UserLoginSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True)
 
     def validate(self, data):
-        user = authenticate(username=data['username'], password=data['password'])
+        username = data.get("username")
+        password = data.get("password")
+        user = authenticate(username=username, password=password)
+        
         if not user:
             raise serializers.ValidationError("Invalid username or password.")
         if not user.is_active:
             raise serializers.ValidationError("User is inactive.")
-        return {
-            "id": user.id,
-            "username": user.username,
-            "email": user.email,
-            "user_type": user.user_type,
-            "user": user
-        }
+
+        data["user"] = user  # Pass the user object to the view
+        return data
 
 class LoginResponseSerializer(serializers.Serializer):
     user_id = serializers.IntegerField()
