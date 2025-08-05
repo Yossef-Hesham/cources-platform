@@ -15,9 +15,22 @@ DEBUG = False
 ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', 'localhost', '.now.sh']
 
 # ******************** CORS & SECURITY ********************
-CORS_ALLOWED_ORIGINS = ['*']
+CORS_ALLOWED_ORIGINS = [
+    'https://localhost:5173',
+    'https://127.0.0.1:8000',
+    'https://localhost:8000',
+    'https://*.vercel.app',
+    'https://smart-pharma-net.vercel.app',
+]
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:5173',
+    'https://127.0.0.1:8000',
+    'https://localhost:8000',
+    'https://*.vercel.app',
+    'https://smart-pharma-net.vercel.app',
+]
+
 
 CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS.copy()
 
