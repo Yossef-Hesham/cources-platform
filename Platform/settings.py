@@ -15,17 +15,11 @@ DEBUG = False
 ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', 'localhost', '.now.sh']
 
 # ******************** CORS & SECURITY ********************
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'https://cources-platform.vercel.app',
-]
+CORS_ALLOWED_ORIGINS = ['*']
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'https://cources-platform.vercel.app',
-]
+CSRF_TRUSTED_ORIGINS = ['*']
+
+CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS.copy()
 
 # Security Headers
 SECURE_BROWSER_XSS_FILTER = True
