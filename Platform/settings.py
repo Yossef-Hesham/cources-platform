@@ -16,19 +16,18 @@ ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', 'localhost', '.now.sh']
 
 # ******************** CORS & SECURITY ********************
 CORS_ALLOWED_ORIGINS = [
-    'https://localhost:5173',
-    'https://127.0.0.1:8000',
-    'https://localhost:8000',
-    'https://*.vercel.app',
-    'https://smart-pharma-net.vercel.app',
+    'http://localhost:5173',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+    'http://*.vercel.app',
+    'http://cources-platform-m6e0484xz-youssefs-projects-e2c35ebf.vercel.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://localhost:5173',
-    'https://127.0.0.1:8000',
-    'https://localhost:8000',
-    'https://*.vercel.app',
-    'https://smart-pharma-net.vercel.app',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+    'http://*.vercel.app',
+    'http://cources-platform-m6e0484xz-youssefs-projects-e2c35ebf.vercel.app',
 ]
 
 
