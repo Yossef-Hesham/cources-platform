@@ -28,6 +28,21 @@ DEBUG = False
 ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', 'localhost', '.now.sh']
 
 
+CORS_ALLOWED_ORIGINS = [
+    'https://127.0.0.1:8000',
+    'https://localhost:8000',
+    'https://*.vercel.app',
+    'https://cources-platform.vercel.app',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://127.0.0.1:8000',
+    'https://localhost:8000',
+    'https://*.vercel.app',
+    'https://cources-platform.vercel.app',
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
