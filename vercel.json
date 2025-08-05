@@ -6,14 +6,11 @@
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb",
-        "runtime": "python3.9"
-      }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles_build/static"
+        "runtime": "python3.9",
+        "installCommand": "pip install -r requirements.txt",
+        "python": {
+          "shouldTryToUsePython3": true
+        }
       }
     }
   ],
@@ -21,6 +18,10 @@
     {
       "src": "/static/(.*)",
       "dest": "/static/$1"
+    },
+    {
+      "src": "/media/(.*)",
+      "dest": "/media/$1"
     },
     {
       "src": "/(.*)",
