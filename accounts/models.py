@@ -26,6 +26,9 @@ class Teacher(models.Model):
     date_of_birth = models.DateField()
     rate = models.FloatField(default=0, null=False, blank=True)
     biography = models.TextField(max_length=1000, blank=False, null=True)
+    
+    def __str__(self):
+        return self.user.username
 
 class Parent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

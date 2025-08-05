@@ -34,5 +34,53 @@ Content-Type: application/json
 }
 
 
+### 
+
+POST http://127.0.0.1:8000/api/auth/user/login/
+Content-Type: application/json
+
+
+{
+  "username": "hamzy",
+  "password": "123456"
+}
+
+
+
+### 
+
+GET  http://127.0.0.1:8000/api/teacher/get/courses/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0NDE1MTEyLCJpYXQiOjE3NTQ0MTE1MTIsImp0aSI6IjQ0MWU3MWJiZTQwZTQ1YTVhMGZhODAxN2Q2ZGM3MDYwIiwidXNlcl9pZCI6IjEzIn0.ak-PnElllGOXEEiFhC7nuc_hBTLcPLbsg28e7a-8A4w
+
+
+# {
+#   "name": "Python Basics",
+#   "photo": "null",
+#   "num_students": 30,
+#   "num_hours": 20,
+#   "price": 49.99,
+#   "category": "tech",
+#   "instructor": "1"
+# }
+
+
+
+
+
+# {
+#   "username": "joo_hamzy",
+#   "email": "joo_hamzy@example.com",
+#   "password": "123456",
+#   "user_type": "Student",
+#   "biography": "frontend developer",
+#   "national_id": "123456789",
+#   "date_of_birth": "2000-01-01",
+#   "grade": 12
+
+
+# }
+
+
 
 

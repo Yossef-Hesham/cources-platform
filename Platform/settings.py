@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'Teacherdashboard',
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_spectacular',
@@ -171,3 +172,6 @@ USE_TZ = True
 # ******************** MISC ********************
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = ['127.0.0.1']
+
+
+AUTH_USER_MODEL = 'accounts.User'

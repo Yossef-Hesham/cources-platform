@@ -10,7 +10,7 @@ class IsStudent(BasePermission):
 
 
 
-class IsStudent(BasePermission):
+class IsTeacher(BasePermission):
     """
     Allows access only to users with user_type == 'teacher'.
     """
